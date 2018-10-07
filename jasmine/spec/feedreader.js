@@ -104,21 +104,58 @@ $(function() {
          beforeEach(function(done) {
             loadFeed(0,function() {
             done();
+            });
+        });
+    
+
+        it('check to see if there is at least one entry in feed', function(done) {
+
+            expect(allFeeds.length).not.toBe(0);
+            done();
         });
     });
 
-    it('check to see if there is at least one entry in feed', function(done) {
-
-        expect(allFeeds.length).not.toBe(0);
-        done();
-    });
-
     /* TODO: Write a new test suite named "New Feed Selection" */
+
+    describe('New Feed Selection', function() {
+        let firstTitle;
+        let secondTitle;
+
 
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+
+         beforeEach(function(done) {
+
+            loadFeed(0,function() {
+
+                firstTitle = $('.header-title').text();
+                console.log(firstTitle);
+
+                loadFeed(0,function() {
+                    
+                    console.log(secondTitle);
+                    done();
+                });
+
+                
+            });
+
+            
+
+            
+        });
+    
+
+        it('ensure content changes when new feed is loaded', function(done) {
+
+            secondTitle = $('.header-title').text();
+            expect(firstTitle).not.toBe(secondTitle);
+            console.log(firstTitle + ' ' + secondTitle);
+            done();
+        });
 
     });
      
