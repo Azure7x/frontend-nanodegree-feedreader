@@ -8,8 +8,6 @@ To use program:
 
 1. Clone or download zip file to computer.
 
-2. Open the html file in the folder to start playing game.
-
 ## Directions
 
 The main tests for this feedreader are:
