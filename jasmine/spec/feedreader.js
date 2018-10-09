@@ -127,6 +127,8 @@ $(function() {
          * Remember, loadFeed() is asynchronous.
          */
 
+
+        // completed this section with some help from this article: https://medium.com/letsboot/testing-javascript-with-jasmine-basics-48efe03cf973
          beforeEach(function(done) {
 
             loadFeed(0,function() {
@@ -138,14 +140,8 @@ $(function() {
                     
                     console.log(secondTitle);
                     done();
-                });
-
-                
+                }); 
             });
-
-            
-
-            
         });
     
 
@@ -156,7 +152,5 @@ $(function() {
             console.log(firstTitle + ' ' + secondTitle);
             done();
         });
-
     });
-     
 }());
