@@ -110,7 +110,7 @@ $(function() {
 
         it('check to see if there is at least one entry in feed', function(done) {
 
-            expect(allFeeds.length).not.toBe(0);
+            expect($('.feed .entry').length).not.toBe(0);
             done();
         });
     });
@@ -133,10 +133,10 @@ $(function() {
 
             loadFeed(0,function() {
 
-                firstTitle = $('.header-title').text();
+                firstTitle = $('.feed').html();
                 console.log(firstTitle);
 
-                loadFeed(0,function() {
+                loadFeed(2,function() {
                     
                     console.log(secondTitle);
                     done();
@@ -147,7 +147,7 @@ $(function() {
 
         it('ensure content changes when new feed is loaded', function(done) {
 
-            secondTitle = $('.header-title').text();
+            secondTitle = $('.feed').html();
             expect(firstTitle).not.toBe(secondTitle);
             console.log(firstTitle + ' ' + secondTitle);
             done();
