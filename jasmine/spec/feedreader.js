@@ -69,13 +69,6 @@ $(function() {
         let firstTitle;
         let secondTitle;
 
-
-        /* TODO: Write a test that ensures when a new feed is loaded
-         * by the loadFeed function that the content actually changes.
-         * Remember, loadFeed() is asynchronous.
-         */
-
-
         // completed this section with some help from this article: https://medium.com/letsboot/testing-javascript-with-jasmine-basics-48efe03cf973
         // this part loads one feed, saves it to a variable then loads a new feed
          beforeEach(function(done) {
@@ -83,11 +76,9 @@ $(function() {
             loadFeed(0,function() {
 
                 firstTitle = $('.feed').html();
-                console.log(firstTitle);
 
                 loadFeed(2,function() {
                     
-                    console.log(secondTitle);
                     done();
                 }); 
             });
@@ -98,7 +89,6 @@ $(function() {
 
             secondTitle = $('.feed').html();
             expect(firstTitle).not.toBe(secondTitle);
-            console.log(firstTitle + ' ' + secondTitle);
             done();
         });
     });
